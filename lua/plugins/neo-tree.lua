@@ -6,17 +6,16 @@ return {
         "MunifTanjim/nui.nvim",
         "nvim-tree/nvim-web-devicons",
     },
-    lazy = false, -- neo-tree will lazily load itself
+    lazy = false,
     keys = {
-        { "\\", ":Neotree toggle<CR>", desc = "Toggle NeoTree", silent = true },
+        { "\\", ":Neotree reveal<CR>", desc = "NeoTree reveal", silent = true },
     },
     opts = {
-        event_handlers = {
-            {
-                event = "file_open_requested",
-                handler = function()
-                    vim.cmd("Neotree toggle")
-                end,
+        filesystem = {
+            window = {
+                mappings = {
+                    ["\\"] = "close_window",
+                },
             },
         },
     },
